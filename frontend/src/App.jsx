@@ -779,17 +779,7 @@ function App() {
 
       <div className="p-3 bg-[#202c33]">
         <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={handleResetForm}
-            className="p-3 text-gray-400 hover:text-white font-ember-medium"
-            title="Leave chat"
-          >
-            <span className="text-sm">{currentUser}</span>
-            {isHost && (
-              <Shield className="w-3 h-3 ml-1 text-purple-400 inline" />
-            )}
-          </button>
+          
           <form
             onSubmit={handleSendMessage}
             className="flex items-center gap-2 flex-1"
