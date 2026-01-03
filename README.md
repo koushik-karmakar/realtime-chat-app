@@ -61,11 +61,11 @@ project-root/
 - npm or yarn
 
 ### Backend Setup
-cd backend
-npm install
-npm start
+- cd backend
+- npm install
+- npm start
 
 ### Frontend Setup
-cd frontend
-npm install
-npm run dev
+- cd frontend
+- npm install
+- npm run dev
