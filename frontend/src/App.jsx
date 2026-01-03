@@ -359,7 +359,7 @@ function App() {
 
   if (!isJoined || isRejected || hasBeenRejectedRef.current) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-linear-to-br from-[#0c1317] to-[#202c33]">
+      <div className="flex items-center justify-center min-h-screen bg-linear-to-br from-[#0c1317] to-[#202c33] font-ember">
         <div className="bg-[#2a3942] p-8 rounded-2xl shadow-2xl max-w-md w-full mx-4">
           <div className="text-center mb-8">
             <div className="w-20 h-20 rounded-full bg-teal-600 flex items-center justify-center mx-auto mb-4">
@@ -369,21 +369,21 @@ function App() {
                 <Shield className="w-10 h-10 text-white" />
               )}
             </div>
-            <h1 className="text-3xl font-bold text-white mb-2">
+            <h1 className="text-3xl font-bold text-white mb-2 font-ember-heavy">
               {groupExists ? "Join Group" : "Create Group"}
             </h1>
-            <p className="text-gray-300">
+            <p className="text-gray-300 font-ember-light">
               {groupExists
                 ? `Group created by ${hostUsername}. Enter password or request access.`
                 : "Be the first to create the group"}
             </p>
             {joinError && (
               <p
-                className={`text-sm mt-2 p-3 rounded-lg ${
+                className={`text-sm mt-2 p-3 rounded-lg font-ember-medium ${
                   isPending
                     ? "text-yellow-400 bg-yellow-900/30 border border-yellow-700/50"
                     : isRejected
-                    ? "text-red-400 bg-red-900/30 border border-red-700/50 font-medium"
+                    ? "text-red-400 bg-red-900/30 border border-red-700/50"
                     : "text-red-400 bg-red-900/30 border border-red-700/50"
                 }`}
               >
@@ -395,7 +395,7 @@ function App() {
           {!showPasswordField ? (
             <form onSubmit={handleUsernameSubmit} className="space-y-6">
               <div>
-                <label className="block text-gray-300 mb-2 text-sm font-medium">
+                <label className="block text-gray-300 mb-2 text-sm font-ember-medium">
                   Username
                 </label>
                 <input
@@ -403,13 +403,13 @@ function App() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="Enter your username"
-                  className="w-full bg-[#202c33] text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="w-full bg-[#202c33] text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500 font-ember"
                   autoFocus
                   disabled={
                     isPending || isRejected || hasBeenRejectedRef.current
                   }
                 />
-                <p className="text-gray-400 text-xs mt-2">
+                <p className="text-gray-400 text-xs mt-2 font-ember-light">
                   Only letters and numbers, min 3 characters
                 </p>
               </div>
@@ -423,7 +423,7 @@ function App() {
                     isRejected ||
                     hasBeenRejectedRef.current
                   }
-                  className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-all"
+                  className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-ember-medium transition-all"
                 >
                   {groupExists
                     ? "Continue to Join"
@@ -434,7 +434,7 @@ function App() {
                   <button
                     type="button"
                     onClick={handleResetForm}
-                    className="w-full py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-all"
+                    className="w-full py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-ember-medium transition-all"
                   >
                     Refresh Page to Try Again
                   </button>
@@ -446,20 +446,20 @@ function App() {
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-gray-300 text-sm">Username</p>
-                    <p className="text-white font-medium">{username}</p>
+                    <p className="text-gray-300 text-sm font-ember-light">Username</p>
+                    <p className="text-white font-ember-medium">{username}</p>
                   </div>
                   <button
                     type="button"
                     onClick={handleBackToUsername}
-                    className="text-teal-400 hover:text-teal-300 text-sm"
+                    className="text-teal-400 hover:text-teal-300 text-sm font-ember-medium"
                   >
                     Change
                   </button>
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 mb-2 text-sm font-medium">
+                  <label className="block text-gray-300 mb-2 text-sm font-ember-medium">
                     {groupExists ? "Password (Optional)" : "Create Password"}
                   </label>
                   <input
@@ -471,12 +471,12 @@ function App() {
                         ? "Enter group password to join directly"
                         : "Set group password"
                     }
-                    className="w-full bg-[#202c33] text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    className="w-full bg-[#202c33] text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-teal-500 font-ember"
                     disabled={
                       isPending || isRejected || hasBeenRejectedRef.current
                     }
                   />
-                  <p className="text-gray-400 text-xs mt-2">
+                  <p className="text-gray-400 text-xs mt-2 font-ember-light">
                     {groupExists
                       ? "Leave empty to send join request. Correct password = join directly."
                       : "This will be the password for your group"}
@@ -492,7 +492,7 @@ function App() {
                     disabled={
                       isPending || isRejected || hasBeenRejectedRef.current
                     }
-                    className="w-full py-3 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg font-medium transition-all"
+                    className="w-full py-3 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg font-ember-medium transition-all"
                   >
                     Send Join Request
                   </button>
@@ -505,7 +505,7 @@ function App() {
                       isRejected ||
                       hasBeenRejectedRef.current
                     }
-                    className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-all"
+                    className="w-full py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-ember-medium transition-all"
                   >
                     {groupExists ? "Join Group" : "Create Group"}
                   </button>
@@ -515,7 +515,7 @@ function App() {
                   <button
                     type="button"
                     onClick={handleResetForm}
-                    className="w-full py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-all"
+                    className="w-full py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-ember-medium transition-all"
                   >
                     Refresh Page to Try Again
                   </button>
@@ -525,7 +525,7 @@ function App() {
           )}
 
           <div className="mt-8 pt-6 border-t border-gray-700">
-            <p className="text-gray-400 text-sm text-center">
+            <p className="text-gray-400 text-sm text-center font-ember-light">
               {isRejected || hasBeenRejectedRef.current
                 ? "Your join request was rejected by the host. You cannot join this group."
                 : groupExists
@@ -541,9 +541,9 @@ function App() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-[#0c1317]">
+    <div className="flex flex-col h-screen bg-[#0c1317] font-ember">
       {isHost && hostAlerts.length > 0 && (
-        <div className="fixed top-4 right-4 z-50 space-y-3 max-w-sm">
+        <div className="fixed top-4 right-4 z-50 space-y-3 max-w-sm no-scrollbar">
           {hostAlerts.map((alert) => (
             <div
               key={alert.id}
@@ -552,10 +552,10 @@ function App() {
               <div className="flex items-start gap-3">
                 <AlertCircle className="w-5 h-5 text-blue-400 mt-0.5" />
                 <div className="flex-1">
-                  <p className="text-blue-300 font-medium mb-1">
+                  <p className="text-blue-300 font-ember-medium mb-1">
                     {alert.username} wants to join
                   </p>
-                  <p className="text-white text-sm">{alert.message}</p>
+                  <p className="text-white text-sm font-ember">{alert.message}</p>
                 </div>
               </div>
             </div>
@@ -564,7 +564,7 @@ function App() {
       )}
 
       {isHost && joinRequests.length > 0 && (
-        <div className="fixed top-24 right-4 z-50 space-y-3 max-w-sm">
+        <div className="fixed top-24 right-4 z-50 space-y-3 max-w-sm no-scrollbar">
           {joinRequests.map((request) => (
             <div
               key={request.id}
@@ -573,7 +573,7 @@ function App() {
               <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <UserPlus className="w-5 h-5 text-yellow-400" />
-                  <p className="text-yellow-300 font-medium">Join Request</p>
+                  <p className="text-yellow-300 font-ember-medium">Join Request</p>
                 </div>
                 <button
                   onClick={() => handleDismissRequest(request.socketId)}
@@ -583,8 +583,8 @@ function App() {
                 </button>
               </div>
 
-              <p className="text-white mb-4">
-                <span className="font-bold text-teal-300">
+              <p className="text-white mb-4 font-ember">
+                <span className="font-ember-bold text-teal-300">
                   {request.username}
                 </span>{" "}
                 wants to join the group
@@ -595,7 +595,7 @@ function App() {
                   onClick={() =>
                     handleRequestAction(request.socketId, "approve")
                   }
-                  className="flex-1 bg-green-600 hover:bg-green-700 text-white text-sm py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white text-sm py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2 font-ember-medium"
                 >
                   <Check className="w-4 h-4" />
                   Allow
@@ -604,14 +604,14 @@ function App() {
                   onClick={() =>
                     handleRequestAction(request.socketId, "reject")
                   }
-                  className="flex-1 bg-red-600 hover:bg-red-700 text-white text-sm py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 bg-red-600 hover:bg-red-700 text-white text-sm py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-2 font-ember-medium"
                 >
                   <X className="w-4 h-4" />
                   Reject
                 </button>
               </div>
 
-              <div className="text-xs text-gray-300 text-right mt-3">
+              <div className="text-xs text-gray-300 text-right mt-3 font-ember-light">
                 {new Date(request.timestamp).toLocaleTimeString([], {
                   hour: "2-digit",
                   minute: "2-digit",
@@ -636,13 +636,13 @@ function App() {
                 <Users className="w-5 h-5" />
               )}
             </div>
-            <span className="absolute -bottom-1 -right-1 bg-green-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">
+            <span className="absolute -bottom-1 -right-1 bg-green-500 text-xs w-5 h-5 rounded-full flex items-center justify-center font-ember-bold">
               {users.length}
             </span>
           </div>
           <div>
-            <h2 className="font-bold">Group Chat</h2>
-            <p className="text-sm text-green-400">
+            <h2 className="font-ember-bold">Group Chat</h2>
+            <p className="text-sm text-green-400 font-ember-medium">
               {users.length} online • {currentUser} {isHost && "(Host)"}
             </p>
           </div>
@@ -650,19 +650,19 @@ function App() {
         <div className="flex items-center gap-4">
           {isHost && (joinRequests.length > 0 || hostAlerts.length > 0) && (
             <div className="relative">
-              <div className="px-3 py-1 bg-yellow-600 text-white rounded-full text-sm font-medium flex items-center gap-2">
+              <div className="px-3 py-1 bg-yellow-600 text-white rounded-full text-sm font-ember-medium flex items-center gap-2">
                 <UserPlus className="w-4 h-4" />
                 {joinRequests.length} request{joinRequests.length !== 1 && "s"}
               </div>
               {hostAlerts.length > 0 && (
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full text-xs flex items-center justify-center">
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded-full text-xs flex items-center justify-center font-ember-bold">
                   {hostAlerts.length}
                 </div>
               )}
             </div>
           )}
           {isHost && (
-            <div className="flex items-center gap-2 text-sm text-gray-300">
+            <div className="flex items-center gap-2 text-sm text-gray-300 font-ember-medium">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
               Host
             </div>
@@ -671,12 +671,12 @@ function App() {
         </div>
       </div>
 
-      <div className="bg-[#1c252b] px-4 py-2 overflow-x-auto">
+      <div className="bg-[#1c252b] px-4 py-2 overflow-x-auto no-scrollbar">
         <div className="flex items-center gap-4 text-white">
-          <span className="text-sm text-gray-300 whitespace-nowrap">
+          <span className="text-sm text-gray-300 whitespace-nowrap font-ember-light">
             Online ({users.length}):
           </span>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 no-scrollbar overflow-x-auto">
             {users.map((user, index) => (
               <div
                 key={index}
@@ -697,7 +697,7 @@ function App() {
                       : "bg-green-400"
                   }`}
                 ></span>
-                <span className="text-sm">
+                <span className="text-sm font-ember-medium">
                   {user} {user === currentUser && isHost && "(Host)"}
                   {user === currentUser && !isHost && "(You)"}
                 </span>
@@ -708,11 +708,11 @@ function App() {
 
         {typingUsers.length > 0 && (
           <div className="mt-2 flex items-center gap-2 text-sm text-gray-300">
-            <span className="whitespace-nowrap">Typing:</span>
+            <span className="whitespace-nowrap font-ember-light">Typing:</span>
             <div className="flex items-center gap-2 flex-wrap">
               {typingUsers.map((user) => (
                 <div key={user} className="flex items-center gap-1">
-                  <span className="italic text-teal-300">{user}</span>
+                  <span className="italic text-teal-300 font-ember-medium">{user}</span>
                   <div className="flex items-center gap-1">
                     <span className="w-1 h-1 bg-teal-400 rounded-full animate-pulse"></span>
                     <span
@@ -731,7 +731,7 @@ function App() {
         )}
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0c1317] bg-opacity-95">
+      <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#0c1317] bg-opacity-95 no-scrollbar chat-messages-container">
         {messages.map((msg) => (
           <div
             key={msg.id}
@@ -749,18 +749,18 @@ function App() {
               }`}
             >
               {msg.sender !== "system" && msg.sender !== "me" && (
-                <p className="text-teal-300 text-xs font-medium mb-1">
+                <p className="text-teal-300 text-xs font-ember-medium mb-1">
                   {msg.username}
                 </p>
               )}
               {msg.sender === "system" && (
-                <p className="text-blue-300 text-xs font-medium mb-1">
+                <p className="text-blue-300 text-xs font-ember-medium mb-1">
                   {msg.username}
                 </p>
               )}
-              <p className="text-white">{msg.text}</p>
+              <p className="text-white font-ember">{msg.text}</p>
               <div className="flex items-center justify-between gap-2 mt-1">
-                <span className="text-xs text-gray-300">{msg.time}</span>
+                <span className="text-xs text-gray-300 font-ember-light">{msg.time}</span>
                 {msg.sender === "me" && (
                   <span className="text-xs">
                     {msg.read ? (
@@ -782,10 +782,10 @@ function App() {
           <button
             type="button"
             onClick={handleResetForm}
-            className="p-3 text-gray-400 hover:text-white"
+            className="p-3 text-gray-400 hover:text-white font-ember-medium"
             title="Leave chat"
           >
-            <span className="text-sm font-medium">{currentUser}</span>
+            <span className="text-sm">{currentUser}</span>
             {isHost && (
               <Shield className="w-3 h-3 ml-1 text-purple-400 inline" />
             )}
@@ -805,7 +805,7 @@ function App() {
               value={newMessage}
               onChange={handleTyping}
               placeholder={`Message in Group Chat...`}
-              className="flex-1 bg-[#2a3942] text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="flex-1 bg-[#2a3942] text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-teal-500 font-ember"
             />
             {newMessage.trim() ? (
               <button
