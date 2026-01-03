@@ -12,9 +12,6 @@ const io = new Server(nodeserver, {
   },
 });
 
-app.get("/", (req, res) => {
-  res.send("<h1>Hello world</h1>");
-});
 
 const DEFAULT_PASSWORD = process.env.DEFAULT_PASSWORD || "12345";
 
