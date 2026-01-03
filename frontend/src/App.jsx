@@ -697,7 +697,7 @@ function App() {
                       : "bg-green-400"
                   }`}
                 ></span>
-                <span className="text-sm font-ember-medium">
+                <span className="text-sm font-ember-medium whitespace-nowrap">
                   {user} {user === currentUser && isHost && "(Host)"}
                   {user === currentUser && !isHost && "(You)"}
                 </span>
