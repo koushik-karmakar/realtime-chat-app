@@ -642,7 +642,7 @@ function App() {
           </div>
           <div>
             <h2 className="font-ember-bold">Group Chat</h2>
-            <p className="text-sm text-green-400 font-ember-medium">
+            <p className="text-sm text-green-400 font-ember-medium whitespace-nowrap">
               {users.length} online • {currentUser} {isHost && "(Host)"}
             </p>
           </div>
