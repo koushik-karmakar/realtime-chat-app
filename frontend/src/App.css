@@ -1,56 +1,97 @@
-@import url('https://fonts.cdnfonts.com/css/amazon-ember');
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('https://d1.awsstatic.com/webteam/architecture-icons/AmazonEmber_W_Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
-*{
-  font-family: "Amazon Ember", -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, Arial, sans-serif;
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('https://d1.awsstatic.com/webteam/architecture-icons/AmazonEmber_W_Bd.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('https://d1.awsstatic.com/webteam/architecture-icons/AmazonEmber_W_Lt.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amazon Ember';
+  src: url('https://d1.awsstatic.com/webteam/architecture-icons/AmazonEmber_W_Md.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+.font-ember {
+  font-family: 'Amazon Ember', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-ember-bold {
+  font-family: 'Amazon Ember', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: bold;
+}
+
+.font-ember-medium {
+  font-family: 'Amazon Ember', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+}
+
+.font-ember-light {
+  font-family: 'Amazon Ember', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 300;
+}
+
+.font-ember-heavy {
+  font-family: 'Amazon Ember', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 900;
 }
 
 .bg-chat-pattern {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23121d24' fill-opacity='0.3'%3E%3Cpath d='M96 95h4v1h-4v4h-1v-4h-4v-1h4v-4h1v4zM40 85h4v1h-4v4h-1v-4h-4v-1h4v-4h1v4zM40 35h4v1h-4v4h-1v-4h-4v-1h4v-4h1v4zM96 35h4v1h-4v4h-1v-4h-4v-1h4v-4h1v4zM68 60h4v1h-4v4h-1v-4h-4v-1h4v-4h1v4zM68 10h4v1h-4v4h-1v-4h-4v-1h4v-4h1v4zM20 60h4v1h-4v4h-1v-4h-4v-1h4v-4h1v4zM20 10h4v1h-4v4h-1v-4h-4v-1h4v-4h1v4z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-
-::-webkit-scrollbar {
-  width: 6px;
-    
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #374248;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #455a64;
-}
-
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-
-* {
-  transition: background-color 0.2s ease;
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 * {
-  scrollbar-width: none;
   -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 *::-webkit-scrollbar {
-  display: none; 
+  display: none;
+}
+
+html, body {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chat-messages-container {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+}
+
+.chat-messages-container::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: 'Amazon Ember', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  transition: background-color 0.2s ease;
 }
 
 .chat-messages-container p,
@@ -58,10 +99,30 @@
 input, textarea {
   user-select: text;
   -webkit-user-select: text;
+  font-family: 'Amazon Ember', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 @media (max-width: 768px) {
   input, textarea {
     font-size: 16px;
+  }
+  
+  body {
+    font-family: 'Amazon Ember', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
